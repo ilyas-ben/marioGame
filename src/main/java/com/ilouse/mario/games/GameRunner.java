@@ -1,7 +1,13 @@
 package com.ilouse.mario.games;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
 public class GameRunner {
 
+    @Autowired
     private GamingConsole game;
 
     public GameRunner(GamingConsole game) {

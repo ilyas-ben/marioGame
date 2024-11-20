@@ -1,5 +1,8 @@
 package com.ilouse.mario.games;
 
+
+
+
 public interface GamingConsole {
     void up();
     void down();
