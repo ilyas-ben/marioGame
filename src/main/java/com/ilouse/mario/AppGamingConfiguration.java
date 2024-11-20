@@ -1,9 +1,11 @@
 package com.ilouse.mario;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.ilouse.mario.games.GameRunner;
+import com.ilouse.mario.games.GamingConsole;
 import com.ilouse.mario.games.MarioGame;
 import com.ilouse.mario.games.Pacman;
 import com.ilouse.mario.games.SuperContraGame;
@@ -19,19 +21,27 @@ public class AppGamingConfiguration {
     }
 
     @Bean
-    public MarioGame mario(){
+    public GamingConsole mario(){
         return new MarioGame();
     }
 
     @Bean
-    public SuperContraGame superContraGame(){
+    public GamingConsole superContraGame(){
         return new SuperContraGame();
     }
 
     @Bean
-    public Pacman pacman(){
+    public GamingConsole pacman(){
         return new Pacman();
     }
+
+    
+    @Bean
+    public GameRunner gameRunner(@Qualifier("mario") GamingConsole gamingConsole){
+        return new GameRunner(gamingConsole);
+    }
+
+
 
     
 }

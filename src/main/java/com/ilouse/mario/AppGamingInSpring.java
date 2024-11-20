@@ -1,5 +1,7 @@
 package com.ilouse.mario;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -17,18 +19,12 @@ public class AppGamingInSpring {
     var superContraGame = context.getBean(SuperContraGame.class);
     var pacmac = context.getBean(Pacman.class);
 
-    var gameRunnerForMario = new GameRunner(marioGame);
-    var gameRunnerForSuperContra = new GameRunner(superContraGame);
-    var gameRunnerForPacman = new GameRunner(pacmac);
+    var gameRunner = context.getBean(GameRunner.class);
+    gameRunner.run();    
 
-    System.out.println("Mario game :");
-    gameRunnerForMario.run();
-
-    System.out.println("Super contra game :");
-    gameRunnerForSuperContra.run();
-
-    System.out.println("Pacman game :");
-    gameRunnerForPacman.run();
+    System.out.println("Below all the beans created : \n \n ");
+    
+    Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println); // displaying all beans
 
     context.close();
   }
