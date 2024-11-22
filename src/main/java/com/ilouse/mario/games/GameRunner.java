@@ -9,11 +9,13 @@ public class GameRunner {
     //@Autowired
     private GamingConsole game;
 
+    // @Autowired : constructor based injection
     public GameRunner(GamingConsole game) {
+        System.out.println("game"+game+"have been injected thr constructor");
         this.game = game;
     }
 
-    @Autowired
+    //@Autowired : setter based injection 
     public void setGame(GamingConsole game) {
         System.out.println("game"+game+"have been injected thr setter");
         this.game = game;
