@@ -9,11 +9,13 @@ public class GameRunner {
     //@Autowired
     private GamingConsole game;
 
-    // @Autowired : constructor based injection
+   // @Autowired : constructor based injection
     public GameRunner(GamingConsole game) {
         System.out.println("game"+game+"have been injected thr constructor");
         this.game = game;
-    }
+    } /* here the Autowired is optional,  sincie a constructor is being mentioneed, spring will autowire directly the metionned argument in the constructor  */ 
+
+    
 
     //@Autowired : setter based injection 
     public void setGame(GamingConsole game) {
@@ -21,6 +23,9 @@ public class GameRunner {
         this.game = game;
     }
     
+
+    
+
 
     public void run() {
         // TODO Auto-generated method stub
